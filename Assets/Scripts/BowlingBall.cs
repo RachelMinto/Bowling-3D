@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class BowlingBall : MonoBehaviour {
     [SerializeField] AudioSource rollingSFX;
+    public Vector3 launchVelocity;
+    private Rigidbody ballRigidbody;
 
 	void Start () {
-        Vector3 initialVelocity = new Vector3(0, 0, -350);
-        GetComponent<Rigidbody>().velocity = initialVelocity;
+        ballRigidbody = GetComponent<Rigidbody>();
+        ballRigidbody.velocity = launchVelocity;
+        GetComponent<Rigidbody>().velocity = launchVelocity;
+
+        Debug.Log(rollingSFX);
+        rollingSFX.Play();
 	}
 }
