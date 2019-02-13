@@ -21,14 +21,12 @@ public class DragLaunch : MonoBehaviour {
     public void DragEnd() {
         Vector3 differenceInPosition = CurrentPosition() - dragStartPosition;
         float speedOfLaunch = (float)(CurrentTime() - dragStartTime).TotalMilliseconds;
-        Vector3 launchVelocity = differenceInPosition;
-        launchVelocity.z = -speedOfLaunch;
-        ball.Launch(launchVelocity);
+        Vector3 launchVelocity = new Vector3(-differenceInPosition.x, 0, -speedOfLaunch);
+        launchVelocity.z = -speedOfLaunch;ball.Launch(launchVelocity);
     }
 
     private DateTime CurrentTime() {
         return DateTime.Now;
-
     }
 
     private Vector3 CurrentPosition() {
