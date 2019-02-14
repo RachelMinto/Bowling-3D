@@ -5,6 +5,7 @@ using UnityEngine;
 public class BowlingBall : MonoBehaviour {
     [SerializeField] AudioSource rollingSFX;
     private Rigidbody ballRigidbody;
+    private float startXLocation = 0f;
 
 	void Start () {
         ballRigidbody = GetComponent<Rigidbody>();
@@ -16,5 +17,11 @@ public class BowlingBall : MonoBehaviour {
         ballRigidbody.velocity = velocity;
 
         rollingSFX.Play();
+    }
+
+    public void MoveStart(float xNudge)
+    {
+        startXLocation += xNudge;
+        Debug.Log(startXLocation);
     }
 }
