@@ -21,7 +21,10 @@ public class BowlingBall : MonoBehaviour {
 
     public void MoveStart(float xNudge)
     {
-        startXLocation += xNudge;
-        Debug.Log(startXLocation);
+        float updatedLocation = Mathf.Clamp(startXLocation - xNudge, -50, 50);
+        startXLocation = updatedLocation;
+
+        Vector3 newPosition = new Vector3(startXLocation, transform.position.y, transform.position.z);
+        transform.position = newPosition;
     }
 }
