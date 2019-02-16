@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BowlingBall : MonoBehaviour {
+    private bool inPlay = false;
     [SerializeField] AudioSource rollingSFX;
     private Rigidbody ballRigidbody;
     private float startXLocation = 0f;
@@ -13,6 +14,7 @@ public class BowlingBall : MonoBehaviour {
 	}
 
     public void Launch(Vector3 velocity) {
+        inPlay = true;
         ballRigidbody.useGravity = true;
         ballRigidbody.velocity = velocity;
 
@@ -21,6 +23,7 @@ public class BowlingBall : MonoBehaviour {
 
     public void MoveStart(float xNudge)
     {
+        if (inPlay) { return; }
         float updatedLocation = Mathf.Clamp(startXLocation - xNudge, -50, 50);
         startXLocation = updatedLocation;
 
