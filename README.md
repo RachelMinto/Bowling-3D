@@ -1,2 +1,2 @@
 # Bowling-3D
-A 3D Bowling Game made in C# and Unity
+Part of a 3D Bowling Game made in C# and Unity to get the hang of working with 3D assets.
